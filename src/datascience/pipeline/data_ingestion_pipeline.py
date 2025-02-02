@@ -17,7 +17,6 @@ class DataIngestionTrainingPipeline:
 
 
 
-
 if __name__== '__main__':
     try:
         logger.info(f">>>> stage {STAGE_NAME} started <<<<")
