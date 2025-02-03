@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PurePalate – Quality Predictor</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset and Base Styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      overflow: hidden;
+    }
+
+    /* Animated Background Gradient */
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(270deg, #d4fc79, #96e6a1, #fddde6);
+      background-size: 600% 600%;
+      animation: GradientAnimation 15s ease infinite;
+      z-index: -1;
+    }
+    @keyframes GradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Container Styles */
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    .form-container {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      animation: fadeInUp 1s ease-out;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Form Styles */
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    label {
+      font-size: 14px;
+      color: #555;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: border 0.3s ease;
+    }
+    input[type="number"]:focus {
+      border: 1px solid #666;
+      outline: none;
+    }
+    /* Full-width field */
+    .full-width {
+      grid-column: span 2;
+    }
+    button {
+      padding: 12px;
+      background: #6a82fb;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    button:hover {
+      background: #5364e2;
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body>
+  <div class="animated-bg"></div>
+  <div class="container">
+    <div class="form-container">
+      <h1>PurePalate Quality Predictor</h1>
+      <form action="/predict" method="POST">
+        <div>
+          <label for="fixed_acidity">Fixed Acidity</label>
+          <input type="number" step="any" name="fixed_acidity" id="fixed_acidity" required>
+        </div>
+        <div>
+          <label for="volatile_acidity">Volatile Acidity</label>
+          <input type="number" step="any" name="volatile_acidity" id="volatile_acidity" required>
+        </div>
+        <div>
+          <label for="citric_acid">Citric Acid</label>
+          <input type="number" step="any" name="citric_acid" id="citric_acid" required>
+        </div>
+        <div>
+          <label for="residual_sugar">Residual Sugar</label>
+          <input type="number" step="any" name="residual_sugar" id="residual_sugar" required>
+        </div>
+        <div>
+          <label for="chlorides">Chlorides</label>
+          <input type="number" step="any" name="chlorides" id="chlorides" required>
+        </div>
+        <div>
+          <label for="free_sulfur_dioxide">Free Sulfur Dioxide</label>
+          <input type="number" step="any" name="free_sulfur_dioxide" id="free_sulfur_dioxide" required>
+        </div>
+        <div>
+          <label for="total_sulfur_dioxide">Total Sulfur Dioxide</label>
+          <input type="number" step="any" name="total_sulfur_dioxide" id="total_sulfur_dioxide" required>
+        </div>
+        <div>
+          <label for="density">Density</label>
+          <input type="number" step="any" name="density" id="density" required>
+        </div>
+        <div>
+          <label for="pH">pH</label>
+          <input type="number" step="any" name="pH" id="pH" required>
+        </div>
+        <div>
+          <label for="sulphates">Sulphates</label>
+          <input type="number" step="any" name="sulphates" id="sulphates" required>
+        </div>
+        <div class="full-width">
+          <label for="alcohol">Alcohol</label>
+          <input type="number" step="any" name="alcohol" id="alcohol" required>
+        </div>
+        <div class="full-width" style="text-align: center;">
+          <button type="submit">Predict Quality</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
