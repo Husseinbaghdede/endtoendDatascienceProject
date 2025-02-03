@@ -106,14 +106,6 @@ Now, open your browser and go to **`http://127.0.0.1:5000/`**.
 
 ---
 
-## 📌 Screenshots
-**Home Page:**
-![Home Page](static/homepage.png)
-
-**Prediction Result:**
-![Result Page](static/resultpage.png)
-
----
 
 ## 🔥 MLflow Experiment Tracking
 - This project logs metrics and model artifacts to **MLflow**, hosted on **DagsHub**.
